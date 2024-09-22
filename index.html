@@ -9,7 +9,10 @@
 </head>
 <body>
     <!-- Background Music -->
-    <audio autoplay loop hidden>
+    <button onclick="document.querySelector('audio').muted = !document.querySelector('audio').muted;">
+        Toggle Sound
+    </button>
+    <audio autoplay loop muted>
         <source src="audio/background-music.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
@@ -19,11 +22,6 @@
 
         <nav>
             <a href="#" class="active">Home</a>
-            <a href="#">Services</a>
-            <a href="#">Skills</a>
-            <a href="#">Education</a>
-            <a href="#">Experience</a>
-            <a href="#">Contact</a>
         </nav>
     </header>
     
@@ -40,12 +38,12 @@
                 <a href="https://x.com/AQUA0GAMER?t=Wu3kimwn8Bj3wc8WGgkLmA&s=09" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
                 <a href="https://anilist.co/user/Aqua0gamer/" target="_blank"><i class="fa-brands fa-anilist"></i></a>
                 <a href="https://myanimelist.net/profile/AQUA0GAMER" target="_blank"><i class="fa-brands fa-myanimelist"></i></a>
-                <a href=https://open.spotify.com/user/31ycrhmssgsku5ssjcvp555i3qfy?si=9LWUtn4OQhWuUKG8PvjPhg"" target="_blank"><i class="fa-brands fa-spotify"></i></a>
+                <a href="https://open.spotify.com/user/31ycrhmssgsku5ssjcvp555i3qfy?si=9LWUtn4OQhWuUKG8PvjPhg" target="_blank"><i class="fa-brands fa-spotify"></i></a>
                 <a href="https://discord.com/invite/SC7K3EtE3b" target="_blank"><i class="fa-brands fa-discord"></i></a>
                 <a href="https://youtube.com/@itzarataka?si=KWi3_cJjyonub01_" target="_blank"><i class="fa-brands fa-youtube"></i></a>
             </div>
             
-            <a href="#" class="btn"></a>
+            <a href="#" class="btn">Jack of all trades, master of none</a>
         </div>
     </section>
 </body>
