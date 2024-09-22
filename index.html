@@ -8,25 +8,24 @@
     <title>Portfolio Website</title>
     <style>
         /* Add this CSS */
-        .audio-background {
+        .video-background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1; /* Sends the audio to the back */
-            overflow: hidden;
+            z-index: -1; /* Sends the video to the back */
             visibility: hidden; /* Hide the player */
         }
         header {
             position: relative;
-            z-index: 1; /* Bring header above the audio */
+            z-index: 1; /* Bring header above the video */
         }
         .play-button {
             position: relative;
             z-index: 1;
             padding: 10px 20px;
-            background-color: #1DB954; /* Spotify green */
+            background-color: #ff0000; /* YouTube red */
             color: white;
             border: none;
             border-radius: 5px;
@@ -38,12 +37,12 @@
 </head>
 <body>
 
-    <div class="audio-background">
+    <div class="video-background">
         <iframe 
-            id="spotify-iframe"
-            src="https://open.spotify.com/embed/track/0QyBuvf2497pSl9ATvKtAj?utm_source=generator" 
+            id="youtube-iframe"
+            src="https://www.youtube.com/embed/J_DE2d1F9wU?autoplay=0&mute=1&loop=1&playlist=J_DE2d1F9wU" 
             width="300" height="380" frameborder="0" 
-            allowtransparency="true" allow="encrypted-media" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
             style="display:none;">
         </iframe>
     </div>
@@ -73,15 +72,15 @@
                 <a href="https://youtube.com/@itzarataka?si=KWi3_cJjyonub01_" target="_blank"><i class="fa-brands fa-youtube"></i></a>
             </div>
             
-            <button class="play-button" onclick="playMusic()">Play Music</button>
+            <button class="play-button" onclick="playVideo()">Play Music</button>
         </div>
     </section>
 
     <script>
-        function playMusic() {
-            const iframe = document.getElementById('spotify-iframe');
+        function playVideo() {
+            const iframe = document.getElementById('youtube-iframe');
             iframe.style.display = 'block'; // Show the iframe
-            iframe.src += '&autoplay=true'; // Start playing music
+            iframe.src += '&autoplay=1'; // Start playing the video
         }
     </script>
 
