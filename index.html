@@ -18,12 +18,29 @@
             overflow: hidden;
             visibility: hidden; /* Hide the player */
         }
+        header {
+            position: relative;
+            z-index: 1; /* Bring header above the audio */
+        }
+        .play-button {
+            position: relative;
+            z-index: 1;
+            padding: 10px 20px;
+            background-color: #1DB954; /* Spotify green */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px;
+        }
     </style>
 </head>
 <body>
 
     <div class="audio-background">
         <iframe 
+            id="spotify-iframe"
             src="https://open.spotify.com/embed/track/0QyBuvf2497pSl9ATvKtAj?utm_source=generator" 
             width="300" height="380" frameborder="0" 
             allowtransparency="true" allow="encrypted-media" 
@@ -56,9 +73,17 @@
                 <a href="https://youtube.com/@itzarataka?si=KWi3_cJjyonub01_" target="_blank"><i class="fa-brands fa-youtube"></i></a>
             </div>
             
-            <a href="#" class="btn">Jack of all trades, master of none</a>
+            <button class="play-button" onclick="playMusic()">Play Music</button>
         </div>
     </section>
+
+    <script>
+        function playMusic() {
+            const iframe = document.getElementById('spotify-iframe');
+            iframe.style.display = 'block'; // Show the iframe
+            iframe.src += '&autoplay=true'; // Start playing music
+        }
+    </script>
 
 </body>
 </html>
