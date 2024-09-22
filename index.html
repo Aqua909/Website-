@@ -79,7 +79,7 @@
                 <a href="https://youtube.com/@itzarataka?si=KWi3_cJjyonub01_" target="_blank"><i class="fa-brands fa-youtube"></i></a>
             </div>
             
-            <a href="#" class="btn-open-twitter" onclick="showTwitter()">View My Latest Twitter Posts</a>
+            <a href="#" class="btn-open-twitter" onclick="showTwitter(event)">View My Latest Twitter Posts</a>
         </div>
     </section>
 
@@ -113,14 +113,17 @@
             videoPlayer.src = getRandomVideoURL();
         });
 
-        // Function to play video on any click
-        document.addEventListener('click', function() {
-            var videoPlayer = document.getElementById('videoPlayer');
-            videoPlayer.src = getRandomVideoURL();
+        // Function to play video on any click except the Twitter button
+        document.addEventListener('click', function(e) {
+            if (!e.target.classList.contains('btn-open-twitter')) {
+                var videoPlayer = document.getElementById('videoPlayer');
+                videoPlayer.src = getRandomVideoURL();
+            }
         });
 
         // Function to show the Twitter section
-        function showTwitter() {
+        function showTwitter(event) {
+            event.stopPropagation(); // Prevent interaction with the video
             var twitterSection = document.getElementById('twitterSection');
             twitterSection.style.display = 'block';
         }
