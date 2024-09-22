@@ -15,23 +15,11 @@
             width: 100%;
             height: 100%;
             z-index: -1; /* Sends the video to the back */
-            visibility: hidden; /* Hide the player */
         }
-        header {
-            position: relative;
-            z-index: 1; /* Bring header above the video */
-        }
-        .play-button {
-            position: relative;
-            z-index: 1;
-            padding: 10px 20px;
-            background-color: #ff0000; /* YouTube red */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin: 20px;
+        iframe {
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Prevents interaction with the video */
         }
     </style>
 </head>
@@ -39,11 +27,11 @@
 
     <div class="video-background">
         <iframe 
-            id="youtube-iframe"
-            src="https://www.youtube.com/embed/J_DE2d1F9wU?autoplay=0&mute=1&loop=1&playlist=J_DE2d1F9wU" 
-            width="300" height="380" frameborder="0" 
+            src="https://www.youtube.com/embed/J_DE2d1F9wU?autoplay=1&mute=1&loop=1&playlist=J_DE2d1F9wU" 
+            title="YouTube video player" 
+            frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            style="display:none;">
+            allowfullscreen>
         </iframe>
     </div>
 
@@ -72,17 +60,9 @@
                 <a href="https://youtube.com/@itzarataka?si=KWi3_cJjyonub01_" target="_blank"><i class="fa-brands fa-youtube"></i></a>
             </div>
             
-            <button class="play-button" onclick="playVideo()">Play Music</button>
+            <a href="#" class="btn">Jack of all trades, master of none</a>
         </div>
     </section>
-
-    <script>
-        function playVideo() {
-            const iframe = document.getElementById('youtube-iframe');
-            iframe.style.display = 'block'; // Show the iframe
-            iframe.src += '&autoplay=1'; // Start playing the video
-        }
-    </script>
 
 </body>
 </html>
