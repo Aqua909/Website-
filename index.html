@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <title>Portfolio Website</title>
     <style>
-        /* Add this CSS */
         .video-background {
             position: fixed;
             top: 0;
@@ -26,8 +25,8 @@
 <body>
 
     <div class="video-background">
-        <iframe 
-            src="https://www.youtube.com/embed/J_DE2d1F9wU?autoplay=1&mute=0&loop=1&playlist=J_DE2d1F9wU" 
+        <iframe id="videoPlayer" 
+            src="https://www.youtube.com/embed/J_DE2d1F9wU?autoplay=0&mute=0&loop=1&playlist=J_DE2d1F9wU" 
             title="YouTube video player" 
             frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -63,6 +62,14 @@
             <a href="#" class="btn">Jack of all trades, master of none</a>
         </div>
     </section>
+
+    <script>
+        // Function to play video on any click
+        document.addEventListener('click', function() {
+            var videoPlayer = document.getElementById('videoPlayer');
+            videoPlayer.src = "https://www.youtube.com/embed/J_DE2d1F9wU?autoplay=1&mute=0&loop=1&playlist=J_DE2d1F9wU";
+        });
+    </script>
 
 </body>
 </html>
