@@ -20,17 +20,17 @@
             height: 100%;
             pointer-events: none; /* Prevents interaction with the video */
         }
-        .twitter-section {
+        .x-section {
             display: none;
             margin-top: 50px;
             text-align: center;
         }
-        .twitter-section iframe {
+        .x-section iframe {
             width: 100%;
             height: 600px;
             border: none;
         }
-        .btn-open-twitter {
+        .btn-open-x {
             display: inline-block;
             margin-top: 20px;
             padding: 10px 20px;
@@ -79,14 +79,14 @@
                 <a href="https://youtube.com/@itzarataka?si=KWi3_cJjyonub01_" target="_blank"><i class="fa-brands fa-youtube"></i></a>
             </div>
             
-            <a href="#" class="btn-open-twitter" onclick="showTwitter(event)">View My Latest Twitter Posts</a>
+            <a href="#" class="btn-open-x" onclick="showX(event)">View My Latest X Posts</a>
         </div>
     </section>
 
-    <!-- New section for Twitter feed -->
-    <section class="twitter-section" id="twitterSection">
-        <h2>My Latest Twitter Posts</h2>
-        <a class="twitter-timeline" href="https://twitter.com/AQUA0GAMER" data-tweet-limit="5">Tweets by AQUA0GAMER</a>
+    <!-- New section for X (formerly Twitter) feed -->
+    <section class="x-section" id="xSection">
+        <h2>My Latest X Posts</h2>
+        <a class="x-timeline" href="https://x.com/AQUA0GAMER?ref_src=twsrc%5Etfw" data-tweet-limit="5">Posts by AQUA0GAMER</a>
     </section>
 
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -113,19 +113,19 @@
             videoPlayer.src = getRandomVideoURL();
         });
 
-        // Function to play video on any click except the Twitter button
+        // Function to play video on any click except the X button
         document.addEventListener('click', function(e) {
-            if (!e.target.classList.contains('btn-open-twitter')) {
+            if (!e.target.classList.contains('btn-open-x')) {
                 var videoPlayer = document.getElementById('videoPlayer');
                 videoPlayer.src = getRandomVideoURL();
             }
         });
 
-        // Function to show the Twitter section
-        function showTwitter(event) {
+        // Function to show the X section
+        function showX(event) {
             event.stopPropagation(); // Prevent interaction with the video
-            var twitterSection = document.getElementById('twitterSection');
-            twitterSection.style.display = 'block';
+            var xSection = document.getElementById('xSection');
+            xSection.style.display = 'block';
         }
     </script>
 
