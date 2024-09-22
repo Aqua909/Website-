@@ -64,10 +64,31 @@
     </section>
 
     <script>
+        // Array of video URLs
+        const videoURLs = [
+            "https://www.youtube.com/embed/9lVPAWLWtWc?autoplay=1&mute=0&loop=1&playlist=9lVPAWLWtWc",
+            "https://www.youtube.com/embed/7HgJIAUtICU?autoplay=1&mute=0&loop=1&playlist=7HgJIAUtICU",
+            "https://www.youtube.com/embed/pyDCubgU57g?autoplay=1&mute=0&loop=1&playlist=pyDCubgU57g",
+            "https://www.youtube.com/embed/tLQLa6lM3Us?autoplay=1&mute=0&loop=1&playlist=tLQLa6lM3Us",
+            "https://www.youtube.com/embed/H08YWE4CIFQ?autoplay=1&mute=0&loop=1&playlist=H08YWE4CIFQ",
+            "https://www.youtube.com/embed/F64yFFnZfkI?autoplay=1&mute=0&loop=1&playlist=F64yFFnZfkI"
+        ];
+
+        // Function to randomly select a video URL
+        function getRandomVideoURL() {
+            return videoURLs[Math.floor(Math.random() * videoURLs.length)];
+        }
+
+        // Set a random video on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            var videoPlayer = document.getElementById('videoPlayer');
+            videoPlayer.src = getRandomVideoURL();
+        });
+
         // Function to play video on any click
         document.addEventListener('click', function() {
             var videoPlayer = document.getElementById('videoPlayer');
-            videoPlayer.src = "https://www.youtube.com/embed/J_DE2d1F9wU?autoplay=1&mute=0&loop=1&playlist=J_DE2d1F9wU";
+            videoPlayer.src = getRandomVideoURL();
         });
     </script>
 
