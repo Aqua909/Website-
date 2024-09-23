@@ -20,12 +20,24 @@
             height: 100%;
             pointer-events: none; /* Prevents interaction with the video */
         }
+
         /* Additional styling for the Twitter feed */
         .twitter-feed {
             margin: 50px auto;
             width: 100%;
             max-width: 500px;
             text-align: center;
+        }
+        .social-icons a {
+            margin-right: 10px;
+        }
+        footer {
+            padding: 20px;
+            text-align: center;
+        }
+        /* Hides the widget source label */
+        .elfsight-app-lazy {
+            display: none !important;
         }
     </style>
 </head>
@@ -72,14 +84,14 @@
 
     <!-- Twitter feed section -->
     <section class="twitter-feed">
-        <!-- Follow Button -->
-        <a href="https://twitter.com/AQUA0GAMER?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @AQUA0GAMER</a>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        
         <!-- Twitter Timeline -->
         <a class="twitter-timeline" href="https://twitter.com/AQUA0GAMER?ref_src=twsrc%5Etfw">Tweets by AQUA0GAMER</a>
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </section>
+
+    <footer>
+        <p>&copy; 2024 Arataka. All Rights Reserved.</p>
+    </footer>
 
     <script>
         // Array of video URLs
@@ -112,5 +124,3 @@
 
 </body>
 </html>
-<script src="https://static.elfsight.com/platform/platform.js" async></script>
-<div class="elfsight-app-a667abd7-26d9-45d1-9243-30de1658c464" data-elfsight-app-lazy></div>
