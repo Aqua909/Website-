@@ -20,24 +20,12 @@
             height: 100%;
             pointer-events: none; /* Prevents interaction with the video */
         }
-
-        /* Additional styling for the Twitter feed */
-        .twitter-feed {
-            margin: 50px auto;
+        .twitter-widget {
+            margin-top: 50px;
             width: 100%;
-            max-width: 500px;
-            text-align: center;
-        }
-        .social-icons a {
-            margin-right: 10px;
-        }
-        footer {
-            padding: 20px;
-            text-align: center;
-        }
-        /* Hides the widget source label */
-        .elfsight-app-lazy {
-            display: none !important;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
     </style>
 </head>
@@ -82,16 +70,12 @@
         </div>
     </section>
 
-    <!-- Twitter feed section -->
-    <section class="twitter-feed">
-        <!-- Twitter Timeline -->
-        <a class="twitter-timeline" href="https://twitter.com/AQUA0GAMER?ref_src=twsrc%5Etfw">Tweets by AQUA0GAMER</a>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    </section>
+    <!-- Twitter Feed -->
+    <div class="twitter-widget">
+        <a class="twitter-timeline" data-theme="dark" data-width="600" data-height="600" href="https://twitter.com/AQUA0GAMER?ref_src=twsrc%5Etfw">Tweets by AQUA0GAMER</a>
+    </div>
 
-    <footer>
-        <p>&copy; 2024 Arataka. All Rights Reserved.</p>
-    </footer>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
     <script>
         // Array of video URLs
