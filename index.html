@@ -20,12 +20,9 @@
             height: 100%;
             pointer-events: none; /* Prevents interaction with the video */
         }
-        .twitter-widget {
+        .twitter-section {
             margin-top: 50px;
-            width: 100%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            text-align: center;
         }
     </style>
 </head>
@@ -70,12 +67,12 @@
         </div>
     </section>
 
-    <!-- Twitter Feed -->
-    <div class="twitter-widget">
-        <a class="twitter-timeline" data-theme="dark" data-width="600" data-height="600" href="https://twitter.com/AQUA0GAMER?ref_src=twsrc%5Etfw">Tweets by AQUA0GAMER</a>
+    <!-- Twitter Feed Section -->
+    <div class="twitter-section">
+        <h2>Latest Tweets</h2>
+        <a class="twitter-timeline" data-theme="dark" data-tweet-limit="5" href="https://twitter.com/AQUA0GAMER?ref_src=twsrc%5Etfw">Tweets by AQUA0GAMER</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
-
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
     <script>
         // Array of video URLs
