@@ -115,6 +115,17 @@
             videoBackground.style.display = 'block';
             videoPlayer.src = getRandomVideoURL(); // Play the random video
         });
+
+        // Function to handle tab switching and page visibility
+        document.addEventListener('visibilitychange', function() {
+            var videoPlayer = document.getElementById('videoPlayer');
+            if (document.visibilityState === 'visible') {
+                // Resume or keep playing the video when the user comes back to the tab
+                videoPlayer.src = videoPlayer.src; // This reloads the video in case it was stopped
+            } else if (document.visibilityState === 'hidden') {
+                // Video continues playing in the background (no action needed)
+            }
+        });
     </script>
 
 </body>
