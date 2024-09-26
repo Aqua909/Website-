@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     <title>Portfolio Website</title>
     <style>
         /* Base Styles */
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
         }
 
         /* Responsive Video Background */
@@ -23,6 +23,7 @@
             z-index: -1;
             display: none; /* Initially hidden */
         }
+
         iframe {
             width: 100%;
             height: 100%;
@@ -44,6 +45,7 @@
             font-size: 24px;
             z-index: 100; /* Appears above all other content */
         }
+
         .enter-screen.active {
             display: none;
         }
@@ -55,7 +57,6 @@
             align-items: center;
             padding: 1rem;
             background-color: rgba(0, 0, 0, 0.7);
-            color: white;
         }
 
         .logo {
@@ -83,7 +84,7 @@
         .home-img img {
             max-width: 100%;
             height: auto;
-            border-radius: 8px;
+            border-radius: 8px; /* Add some styling */
         }
 
         .home-content {
@@ -124,7 +125,7 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
-            
+
             nav {
                 flex-direction: column;
                 width: 100%;
@@ -156,10 +157,12 @@
 </head>
 <body>
 
+    <!-- Click-to-enter screen -->
     <div class="enter-screen" id="enterScreen">
         <span>Click to Enter</span>
     </div>
 
+    <!-- Background video -->
     <div class="video-background" id="videoBackground">
         <iframe id="videoPlayer" 
             src="https://www.youtube.com/embed/J_DE2d1F9wU?autoplay=0&mute=0&loop=1&playlist=J_DE2d1F9wU" 
@@ -170,6 +173,7 @@
         </iframe>
     </div>
 
+    <!-- Header -->
     <header>
         <a href="#" class="logo">Arataka</a>
         <nav>
@@ -177,6 +181,7 @@
         </nav>
     </header>
     
+    <!-- Home Section -->
     <section class="home">
         <div class="home-img">
             <img src="main.jpg" alt="Main Image">
@@ -184,7 +189,7 @@
         <div class="home-content">
             <h1>Hi, It's <span>Nice</span></h1>
             <h3 class="typing-text">I'm<span></span></h3>
-            <p>who loves diving into anime, manga, manhwa, and manhua. I'm also a huge fan of music, especially Japanese and English songs. When I'm not watching or reading, you'll likely find me gaming, especially on games like Honkai: Star Rail. I'm pretty active on Discord, so feel free to catch me there!</p>
+            <p>I love anime, manga, manhwa, manhua, and music (especially Japanese and English songs). When not watching or reading, you'll find me gaming on Honkai: Star Rail. I'm also active on Discord, so catch me there!</p>
             
             <div class="social-icons">
                 <a href="https://x.com/AQUA0GAMER?t=Wu3kimwn8Bj3wc8WGgkLmA&s=09" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
@@ -199,6 +204,7 @@
         </div>
     </section>
 
+    <!-- JavaScript -->
     <script>
         // Array of video URLs
         const videoURLs = [
@@ -209,11 +215,6 @@
             "https://www.youtube.com/embed/H08YWE4CIFQ?autoplay=1&mute=0&loop=1&playlist=H08YWE4CIFQ",
             "https://www.youtube.com/embed/F64yFFnZfkI?autoplay=1&mute=0&loop=1&playlist=F64yFFnZfkI"
         ];
-
-        // Function to randomly select a video URL
-        function getRandomVideoURL() {
-            return videoURLs[Math.floor(Math.random() * videoURLs.length)];
-        }
 
         // Handle the enter screen click event
         document.getElementById('enterScreen').addEventListener('click', function() {
@@ -228,6 +229,11 @@
             videoBackground.style.display = 'block';
             videoPlayer.src = getRandomVideoURL(); // Play the random video
         });
+
+        // Function to randomly select a video URL
+        function getRandomVideoURL() {
+            return videoURLs[Math.floor(Math.random() * videoURLs.length)];
+        }
 
         // Function to handle tab switching and page visibility
         document.addEventListener('visibilitychange', function() {
