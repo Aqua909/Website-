@@ -1,144 +1,159 @@
-<!DOCTYPE html> 
-<html lang="en"> 
-<head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> 
-    <link rel="stylesheet" href="style.css"> 
-    <title>Portfolio Website</title> 
-    <style> 
-        .video-background { 
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-            z-index: -1; 
-            opacity: 0; /* Make the video invisible */ 
-            pointer-events: none; /* Disable interaction with the video */
-        } 
-        iframe { 
-            width: 100%; 
-            height: 100%; 
-            pointer-events: none; 
-        } 
-        /* Click-to-enter screen styling */ 
-        .enter-screen { 
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-            background-color: #000; 
-            color: #fff; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            font-size: 24px; 
-            z-index: 100; /* Appears above all other content */ 
-        } 
-        .enter-screen.active { 
-            display: none; 
-        } 
-        /* Custom icons styling */ 
-        .social-icons { 
-            display: flex; 
-            gap: 10px; 
-            margin-top: 10px; 
-        } 
-        .social-icons a { 
-            color: #fff; 
-            text-decoration: none; 
-            font-size: 24px; 
-        } 
-        /* Red overlay for video */ 
-        .red-overlay { 
-            position: absolute; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-            background-color: rgba(255, 0, 0, 0.5); 
-            z-index: -1; /* Behind video but in front of the background */ 
-        } 
-    </style> 
-</head> 
-<body> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Portfolio Website</title>
+    <style>
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            display: none; /* Initially hidden */
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        /* Click-to-enter screen styling */
+        .enter-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            z-index: 100; /* Appears above all other content */
+        }
+        .enter-screen.active {
+            display: none;
+        }
+        /* Custom icons styling */
+        .social-icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .social-icons a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px; /* Adjust size */
+            height: 40px; /* Adjust size */
+            transition: transform 0.3s;
+        }
+        .social-icons a img {
+            width: 100%;
+            height: auto;
+        }
+        .social-icons a:hover {
+            transform: scale(1.2); /* Enlarge icon on hover */
+        }
+        /* Red overlay for video */
+        .red-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 0, 0, 0.5);
+            z-index: -1; /* Behind video but in front of the background */
+        }
+    </style>
+</head>
+<body>
 
-    <div class="enter-screen" id="enterScreen"> 
-        <span>Click to Enter</span> 
-    </div> 
+    <div class="enter-screen" id="enterScreen">
+        <span>Click to Enter</span>
+    </div>
 
-    <div class="video-background" id="videoBackground"> 
-        <iframe id="videoPlayer"  
-            src="https://www.youtube.com/embed/J_DE2d1F9wU?autoplay=1&mute=0&loop=1&playlist=J_DE2d1F9wU"  
-            title="YouTube video player"  
-            frameborder="0"  
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"  
-            allowfullscreen> 
-        </iframe> 
-        <div class="red-overlay"></div> <!-- Red overlay for video --> 
-    </div> 
+    <div class="video-background" id="videoBackground">
+        <iframe id="videoPlayer"
+            src="https://www.youtube.com/embed/J_DE2d1F9wU?autoplay=1&mute=0&loop=1&playlist=J_DE2d1F9wU"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+        </iframe>
+        <div class="red-overlay"></div> <!-- Red overlay for video -->
+    </div>
 
-    <header> 
-        <a href="#" class="logo">Arataka</a> 
-        <nav> 
-            <a href="#" class="active">Home</a> 
-        </nav> 
-    </header> 
+    <header>
+        <a href="#" class="logo">Arataka</a>
+        <nav>
+            <a href="#" class="active">Home</a>
+        </nav>
+    </header>
 
-    <section class="home"> 
-        <div class="home-img"> 
-            <img src="main.jpg" alt=""> 
-        </div> 
-        <div class="home-content"> 
-            <h1>Hi, It's <span>Nice</span></h1> 
-            <h3 class="typing-text">I'm<span></span></h3> 
-            <p>who loves diving into anime, manga, manhwa, and manhua. I'm also a huge fan of music, especially Japanese and English songs. When I'm not watching or reading, you'll likely find me gaming, especially on games like Honkai: Star Rail. I'm pretty active on Discord, so feel free to catch me there!</p> 
+    <section class="home">
+        <div class="home-img">
+            <img src="main.jpg" alt="">
+        </div>
+        <div class="home-content">
+            <h1>Hi, It's <span>Nice</span></h1>
+            <h3 class="typing-text">I'm<span></span></h3>
+            <p>who loves diving into anime, manga, manhwa, and manhua. I'm also a huge fan of music, especially Japanese and English songs. When I'm not watching or reading, you'll likely find me gaming, especially on games like Honkai: Star Rail. I'm pretty active on Discord, so feel free to catch me there!</p>
 
-            <div class="social-icons"> 
-                <a href="https://x.com/AQUA0GAMER?t=Wu3kimwn8Bj3wc8WGgkLmA&s=09" target="_blank"><i class="fa-brands fa-x-twitter"></i></a> 
-                <a href="https://anilist.co/user/Aqua0gamer/" target="_blank"> 
-                    <img src="https://anilist.co/img/icons/icon-192.png" alt="Anilist" style="width: 24px; height: 24px;"> 
-                </a> 
-                <a href="https://myanimelist.net/profile/AQUA0GAMER" target="_blank"> 
-                    <img src="https://myanimelist.net/images/icons/mal-logo.svg" alt="MyAnimeList" style="width: 24px; height: 24px;"> 
-                </a> 
-                <a href="https://open.spotify.com/user/31ycrhmssgsku5ssjcvp555i3qfy?si=9LWUtn4OQhWuUKG8PvjPhg" target="_blank"><i class="fa-brands fa-spotify"></i></a> 
-                <a href="https://discord.com/invite/SC7K3EtE3b" target="_blank"><i class="fa-brands fa-discord"></i></a> 
-                <a href="https://youtube.com/@itzarataka?si=KWi3_cJjyonub01_" target="_blank"><i class="fa-brands fa-youtube"></i></a> 
-            </div> 
+            <div class="social-icons">
+                <a href="https://x.com/AQUA0GAMER?t=Wu3kimwn8Bj3wc8WGgkLmA&s=09" target="_blank">
+                    <img src="images/custom-twitter-icon.png" alt="Twitter">
+                </a>
+                <a href="https://anilist.co/user/Aqua0gamer/" target="_blank">
+                    <img src="images/custom-anilist-icon.png" alt="Anilist">
+                </a>
+                <a href="https://myanimelist.net/profile/AQUA0GAMER" target="_blank">
+                    <img src="images/custom-myanimelist-icon.png" alt="MyAnimeList">
+                </a>
+                <a href="https://open.spotify.com/user/31ycrhmssgsku5ssjcvp555i3qfy?si=9LWUtn4OQhWuUKG8PvjPhg" target="_blank">
+                    <img src="images/custom-spotify-icon.png" alt="Spotify">
+                </a>
+                <a href="https://discord.com/invite/SC7K3EtE3b" target="_blank">
+                    <img src="images/custom-discord-icon.png" alt="Discord">
+                </a>
+                <a href="https://youtube.com/@itzarataka?si=KWi3_cJjyonub01_" target="_blank">
+                    <img src="images/custom-youtube-icon.png" alt="YouTube">
+                </a>
+            </div>
 
-            <a href="#" class="btn">Jack of all trades, master of none</a> 
-        </div> 
-    </section> 
+            <a href="#" class="btn">Jack of all trades, master of none</a>
+        </div>
+    </section>
 
-    <script> 
-        // Handle the enter screen click event 
-        document.getElementById('enterScreen').addEventListener('click', function() { 
-            var enterScreen = document.getElementById('enterScreen'); 
-            var videoBackground = document.getElementById('videoBackground'); 
-            var videoPlayer = document.getElementById('videoPlayer'); 
+    <script>
+        // Handle the enter screen click event
+        document.getElementById('enterScreen').addEventListener('click', function() {
+            var enterScreen = document.getElementById('enterScreen');
+            var videoBackground = document.getElementById('videoBackground');
+            var videoPlayer = document.getElementById('videoPlayer');
 
-            // Hide the enter screen 
-            enterScreen.classList.add('active'); 
+            // Hide the enter screen
+            enterScreen.classList.add('active');
 
-            // Show the video background and start playing the video 
-            videoBackground.style.display = 'block'; 
-            videoPlayer.src = "https://www.youtube.com/embed/J_DE2d1F9wU?autoplay=1&mute=0&loop=1&playlist=J_DE2d1F9wU"; // Play the specified video 
-        }); 
+            // Show the video background and start playing the video
+            videoBackground.style.display = 'block';
+            videoPlayer.src = "https://www.youtube.com/embed/J_DE2d1F9wU?autoplay=1&mute=0&loop=1&playlist=J_DE2d1F9wU"; // Play the specified video
+        });
 
-        // Function to handle tab switching and page visibility 
-        document.addEventListener('visibilitychange', function() { 
-            var videoPlayer = document.getElementById('videoPlayer'); 
-            if (document.visibilityState === 'visible') { 
-                // Keep playing the video when the user comes back to the tab 
-                videoPlayer.src = videoPlayer.src; // This reloads the video in case it was stopped 
-            } else if (document.visibilityState === 'hidden') { 
-                // Video continues playing in the background (no action needed) 
-            } 
-        }); 
-    </script> 
+        // Function to handle tab switching and page visibility
+        document.addEventListener('visibilitychange', function() {
+            var videoPlayer = document.getElementById('videoPlayer');
+            if (document.visibilityState === 'visible') {
+                // Keep playing the video when the user comes back to the tab
+                videoPlayer.src = videoPlayer.src; // This reloads the video in case it was stopped
+            }
+        });
+    </script>
 
-</body> 
+</body>
 </html>
