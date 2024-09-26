@@ -4,15 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     <title>Portfolio Website</title>
     <style>
-        /* Base Styles */
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            overflow: hidden; /* Prevent scrolling */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            display: none; /* Initially hidden */
         }
-
+        iframe {
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
         /* Click-to-enter screen styling */
         .enter-screen {
             position: fixed;
@@ -26,165 +34,29 @@
             justify-content: center;
             align-items: center;
             font-size: 24px;
-            z-index: 100; /* Above all other content */
+            z-index: 100; /* Appears above all other content */
         }
-
-        /* Responsive Video Background */
-        .video-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            display: none; /* Initially hidden */
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            pointer-events: none; /* Prevents interaction with the video */
-        }
-
-        /* Red overlay */
-        .video-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 0, 0, 0.8); /* Red overlay */
-            z-index: 0; /* Overlay on top of the video */
-            display: none; /* Initially hidden */
-        }
-
-        /* Responsive header */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            color: #fff;
-        }
-
-        /* Responsive nav links */
-        nav {
-            display: flex;
-            gap: 1rem;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        /* Home Section */
-        .home {
-            padding: 2rem 1rem;
-            text-align: center;
-        }
-
-        .home-img img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px; /* Add some styling */
-        }
-
-        .home-content {
-            padding: 1rem;
-        }
-
-        /* Responsive typography */
-        h1 {
-            font-size: 2rem;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-        }
-
-        /* Social Icons */
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 1rem 0;
-        }
-
-        /* Button Styling */
-        .btn {
-            padding: 0.5rem 1rem;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 600px) {
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            nav {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            nav a {
-                padding: 0.5rem 0;
-                width: 100%;
-                text-align: center;
-            }
-
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            h3 {
-                font-size: 1.2rem;
-            }
-
-            .home-content {
-                padding: 0.5rem;
-            }
-
-            .social-icons {
-                flex-wrap: wrap; /* Allow wrapping of social icons */
-            }
+        .enter-screen.active {
+            display: none;
         }
     </style>
 </head>
 <body>
 
-    <!-- Click-to-enter screen -->
     <div class="enter-screen" id="enterScreen">
         <span>Click to Enter</span>
     </div>
 
-    <!-- Background video -->
     <div class="video-background" id="videoBackground">
         <iframe id="videoPlayer" 
-            src="" 
+            src="https://www.youtube.com/embed/J_DE2d1F9wU?autoplay=0&mute=0&loop=1&playlist=J_DE2d1F9wU" 
             title="YouTube video player" 
             frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
             allowfullscreen>
         </iframe>
     </div>
-    
-    <!-- Red overlay -->
-    <div class="video-overlay" id="videoOverlay"></div>
 
-    <!-- Header -->
     <header>
         <a href="#" class="logo">Arataka</a>
         <nav>
@@ -192,15 +64,14 @@
         </nav>
     </header>
     
-    <!-- Home Section -->
     <section class="home">
         <div class="home-img">
-            <img src="main.jpg" alt="Main Image">
+            <img src="main.jpg" alt="">
         </div>
         <div class="home-content">
             <h1>Hi, It's <span>Nice</span></h1>
             <h3 class="typing-text">I'm<span></span></h3>
-            <p>I love anime, manga, manhwa, manhua, and music (especially Japanese and English songs). When not watching or reading, you'll find me gaming on Honkai: Star Rail. I'm also active on Discord, so catch me there!</p>
+            <p>who loves diving into anime, manga, manhwa, and manhua. I'm also a huge fan of music, especially Japanese and English songs. When I'm not watching or reading, you'll likely find me gaming, especially on games like Honkai: Star Rail. I'm pretty active on Discord, so feel free to catch me there!</p>
             
             <div class="social-icons">
                 <a href="https://x.com/AQUA0GAMER?t=Wu3kimwn8Bj3wc8WGgkLmA&s=09" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
@@ -215,41 +86,47 @@
         </div>
     </section>
 
-    <!-- JavaScript -->
     <script>
         // Array of video URLs
         const videoURLs = [
-            "https://www.youtube.com/embed/9lVPAWLWtWc?autoplay=1&mute=1&loop=1&playlist=9lVPAWLWtWc",
-            "https://www.youtube.com/embed/7HgJIAUtICU?autoplay=1&mute=1&loop=1&playlist=7HgJIAUtICU",
-            "https://www.youtube.com/embed/pyDCubgU57g?autoplay=1&mute=1&loop=1&playlist=pyDCubgU57g",
-            "https://www.youtube.com/embed/tLQLa6lM3Us?autoplay=1&mute=1&loop=1&playlist=tLQLa6lM3Us",
-            "https://www.youtube.com/embed/H08YWE4CIFQ?autoplay=1&mute=1&loop=1&playlist=H08YWE4CIFQ",
-            "https://www.youtube.com/embed/F64yFFnZfkI?autoplay=1&mute=1&loop=1&playlist=F64yFFnZfkI"
+            "https://www.youtube.com/embed/9lVPAWLWtWc?autoplay=1&mute=0&loop=1&playlist=9lVPAWLWtWc",
+            "https://www.youtube.com/embed/7HgJIAUtICU?autoplay=1&mute=0&loop=1&playlist=7HgJIAUtICU",
+            "https://www.youtube.com/embed/pyDCubgU57g?autoplay=1&mute=0&loop=1&playlist=pyDCubgU57g",
+            "https://www.youtube.com/embed/tLQLa6lM3Us?autoplay=1&mute=0&loop=1&playlist=tLQLa6lM3Us",
+            "https://www.youtube.com/embed/H08YWE4CIFQ?autoplay=1&mute=0&loop=1&playlist=H08YWE4CIFQ",
+            "https://www.youtube.com/embed/F64yFFnZfkI?autoplay=1&mute=0&loop=1&playlist=F64yFFnZfkI"
         ];
-
-        // Handle the enter screen click event
-        document.getElementById('enterScreen').addEventListener('click', function() {
-            var enterScreen = document.getElementById('enterScreen');
-            var videoBackground = document.getElementById('videoBackground');
-            var videoPlayer = document.getElementById('videoPlayer');
-            var videoOverlay = document.getElementById('videoOverlay');
-
-            // Hide the enter screen
-            enterScreen.style.display = 'none';
-            
-            // Show the video background and overlay
-            videoBackground.style.display = 'block';
-            videoOverlay.style.display = 'block';
-            videoPlayer.src = getRandomVideoURL(); // Play a random video
-        });
 
         // Function to randomly select a video URL
         function getRandomVideoURL() {
             return videoURLs[Math.floor(Math.random() * videoURLs.length)];
         }
 
-        // Handle tab visibility
+        // Handle the enter screen click event
+        document.getElementById('enterScreen').addEventListener('click', function() {
+            var enterScreen = document.getElementById('enterScreen');
+            var videoBackground = document.getElementById('videoBackground');
+            var videoPlayer = document.getElementById('videoPlayer');
+            
+            // Hide the enter screen
+            enterScreen.classList.add('active');
+            
+            // Show the video background and start playing the video
+            videoBackground.style.display = 'block';
+            videoPlayer.src = getRandomVideoURL(); // Play the random video
+        });
+
+        // Function to handle tab switching and page visibility
         document.addEventListener('visibilitychange', function() {
             var videoPlayer = document.getElementById('videoPlayer');
-            if (document.visibilityState === 'hidden') {
-                videoPlayer.src = ''; //
+            if (document.visibilityState === 'visible') {
+                // Resume or keep playing the video when the user comes back to the tab
+                videoPlayer.src = videoPlayer.src; // This reloads the video in case it was stopped
+            } else if (document.visibilityState === 'hidden') {
+                // Video continues playing in the background (no action needed)
+            }
+        });
+    </script>
+
+</body>
+</html>
