@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap'); 
 
 * {
     margin: 0;
@@ -108,15 +108,15 @@ section {
     align-items: center;
     gap: 8rem;
     background-color: black;
-    position: relative; /* Added for positioning */
+    position: relative;
 }
 
 .home-content {
     position: relative;
-    z-index: 2; /* Higher z-index to be above the video */
-    background-color: black; /* Black background to cover the video */
-    padding: 2rem; /* Optional padding */
-    border-radius: 10px; /* Optional rounding of corners */
+    z-index: 2;
+    background-color: black;
+    padding: 2rem;
+    border-radius: 10px;
 }
 
 .home .home-content h1 {
@@ -157,6 +157,12 @@ span {
     font-weight: 500;
 }
 
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem; /* Adjust spacing */
+}
+
 .social-icons a {
     display: inline-flex;
     justify-content: center;
@@ -165,11 +171,15 @@ span {
     height: 4rem;
     background-color: transparent;
     border: 0.2rem solid #b74b4b;
-    font-size: 2rem;
     border-radius: 50%;
     margin: 3rem 1.5rem 3rem 0;
     transition: 0.3s ease;
     color: #b74b4b;
+}
+
+.social-icons img {
+    max-width: 100%; /* Ensure images scale responsively */
+    max-height: 100%; /* Prevent overflow */
 }
 
 .social-icons a:hover {
