@@ -45,6 +45,18 @@
             pointer-events: none; /* Prevents interaction with the video */
         }
 
+        /* Red overlay */
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 0, 0, 0.8); /* Red overlay */
+            z-index: 0; /* Overlay on top of the video but below the enter screen */
+            display: none; /* Initially hidden */
+        }
+
         /* Responsive header */
         header {
             display: flex;
@@ -167,6 +179,9 @@
             allowfullscreen>
         </iframe>
     </div>
+    
+    <!-- Red overlay -->
+    <div class="video-overlay" id="videoOverlay"></div>
 
     <!-- Header -->
     <header>
@@ -216,12 +231,14 @@
             var enterScreen = document.getElementById('enterScreen');
             var videoBackground = document.getElementById('videoBackground');
             var videoPlayer = document.getElementById('videoPlayer');
-            
+            var videoOverlay = document.getElementById('videoOverlay');
+
             // Hide the enter screen
             enterScreen.style.display = 'none';
             
-            // Show the video background and start playing the video
+            // Show the video background and overlay
             videoBackground.style.display = 'block';
+            videoOverlay.style.display = 'block';
             videoPlayer.src = getRandomVideoURL(); // Play a random video
         });
 
@@ -233,15 +250,4 @@
         // Handle tab visibility
         document.addEventListener('visibilitychange', function() {
             var videoPlayer = document.getElementById('videoPlayer');
-            if (document.visibilityState === 'hidden') {
-                // When the tab is hidden, pause the video
-                videoPlayer.src = ""; // Stop the video to save resources
-            } else {
-                // Resume video when the tab is active again
-                videoPlayer.src = getRandomVideoURL(); // Play a random video
-            }
-        });
-    </script>
-
-</body>
-</html>
+            if (document.visibilityState === '
