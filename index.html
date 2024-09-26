@@ -4,30 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
     <title>Portfolio Website</title>
     <style>
         /* Base Styles */
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-        }
-
-        /* Responsive Video Background */
-        .video-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            display: none; /* Initially hidden */
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
         }
 
         /* Click-to-enter screen styling */
@@ -46,8 +28,21 @@
             z-index: 100; /* Appears above all other content */
         }
 
-        .enter-screen.active {
-            display: none;
+        /* Responsive Video Background */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            display: none; /* Initially hidden */
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Prevents interaction with the video */
         }
 
         /* Responsive header */
@@ -165,7 +160,7 @@
     <!-- Background video -->
     <div class="video-background" id="videoBackground">
         <iframe id="videoPlayer" 
-            src="https://www.youtube.com/embed/J_DE2d1F9wU?autoplay=0&mute=0&loop=1&playlist=J_DE2d1F9wU" 
+            src="" 
             title="YouTube video player" 
             frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -223,11 +218,11 @@
             var videoPlayer = document.getElementById('videoPlayer');
             
             // Hide the enter screen
-            enterScreen.classList.add('active');
+            enterScreen.style.display = 'none';
             
             // Show the video background and start playing the video
             videoBackground.style.display = 'block';
-            videoPlayer.src = getRandomVideoURL(); // Play the random video
+            videoPlayer.src = getRandomVideoURL(); // Play a random video
         });
 
         // Function to randomly select a video URL
@@ -235,14 +230,18 @@
             return videoURLs[Math.floor(Math.random() * videoURLs.length)];
         }
 
-        // Function to handle tab switching and page visibility
+        // Handle tab visibility
         document.addEventListener('visibilitychange', function() {
             var videoPlayer = document.getElementById('videoPlayer');
-            if (document.visibilityState === 'visible') {
-                // Resume or keep playing the video when the user comes back to the tab
-                videoPlayer.src = videoPlayer.src; // This reloads the video in case it was stopped
-            } else if (document.visibilityState === 'hidden') {
-                // Video continues playing in the background (no action needed)
+            if (document.visibilityState === 'hidden') {
+                // When the tab is hidden, pause the video
+                videoPlayer.src = ""; // Stop the video to save resources
+            } else {
+                // Resume video when the tab is active again
+                videoPlayer.src = getRandomVideoURL(); // Play a random video
             }
         });
-    </
+    </script>
+
+</body>
+</html>
